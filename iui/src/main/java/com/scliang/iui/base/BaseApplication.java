@@ -1,9 +1,12 @@
 package com.scliang.iui.base;
 
+import android.content.Context;
+
 import androidx.multidex.MultiDexApplication;
 
-import com.scliang.iui.BuildConfig;
 import com.scliang.iui.utils.LogUtils;
+
+import java.lang.reflect.Field;
 
 public abstract class BaseApplication extends MultiDexApplication {
     public static final class BasicApplication extends BaseApplication { }
@@ -15,7 +18,15 @@ public abstract class BaseApplication extends MultiDexApplication {
     @Override
     public final void onCreate() {
         super.onCreate();
-        LogUtils.init(BuildConfig.BUILD_TYPE);
+        final Context context = instance().getApplicationContext();
+        try {
+            Class<?> clz = Class.forName(context.getPackageName() + ".BuildConfig");
+            Field field = clz.getField("BUILD_TYPE");
+            String BuildType = (String) field.get(null);
+            LogUtils.init(BuildType);
+        } catch (ClassNotFoundException | NoSuchFieldException | IllegalAccessException ignored) {
+            LogUtils.init("release");
+        }
         onCreateHere();
     }
 

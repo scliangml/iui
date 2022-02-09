@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/layout/activity_demo.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1770516717325228" />
         <entry key="demo/src/main/res/layout/activity_demo.xml" value="0.35" />
+        <entry key="demo/src/main/res/layout/activity_demo_simple.xml" value="0.2857789855072464" />
         <entry key="iui/src/main/res/drawable/bg_dialog_simple_loading.xml" value="0.3802083333333333" />
         <entry key="iui/src/main/res/drawable/bg_toast.xml" value="0.3802083333333333" />
         <entry key="iui/src/main/res/layout/activity_base.xml" value="0.3640625" />
